@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string findMinOnesNumber(int N) {
+    if (N == 1) {
+        return "1";
+    }
+    
+    // Проверяем, есть ли общие делители с 10 (2 или 5)
+    int n = N;
+    while (n % 2 == 0) n /= 2;
+    while (n % 5 == 0) n /= 5;
+    
+    if (n != 1) {
+        // Решение существует
+        int remainder = 0;
+        for (int k = 1; k <= N + 1; ++k) {
+            remainder = (remainder * 10 + 1) % N;
+            if (remainder == 0) {
+                return string(k, '1');
+            }
+        }
+    }
+    
+    return "No";
+}
+
+int main() {
+    int N;
+    cout << "Введите N: ";
+    cin >> N;
+    
+    string result = findMinOnesNumber(N);
+    cout << result << endl;
+    
+    return 0;
+}
