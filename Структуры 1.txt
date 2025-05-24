@@ -29,7 +29,7 @@ string findMinOnesNumber(int N) {
 
 int main() {
     int N;
-    cout << "Введите N: ";
+    cout << "Гончаров Глеб Фёдорович 09.03.01ПОВа-о24 Введите N: ";
     cin >> N;
     
     string result = findMinOnesNumber(N);
